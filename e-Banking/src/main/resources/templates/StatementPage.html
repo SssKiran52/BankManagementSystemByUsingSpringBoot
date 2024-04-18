@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Statement</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/rings-5716732_1280.jpg");
+            background-repeat :no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        div{
+            width: 350px;
+            height: 300px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgb(47, 47, 237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            top: 220px;
+            animation: div 2s linear;
+        }
+        @keyframes div{
+            from{
+                transform: translateX(-600px);
+            }
+        }
+        h1{
+            position: relative;
+            top: -50px;
+            text-align: center;
+            color: rgb(35, 35, 243);
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            text-shadow: 2px 2px 2px white;
+            font-weight: bold;
+            font-size: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: heading 2s linear infinite;
+        }
+        @keyframes heading{
+            0%{
+                transform: scaleX(1);
+            }
+            25%{
+                transform: scaleY(1.2);
+            }
+            50%{
+                transform: scaleX(1.1);
+            }
+        }
+        #from{
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            position: relative;
+            top: -40px;
+            left: 25px;
+        }
+        #to{
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            position: relative;
+            left: 25px;
+            top: -10px;
+        }
+        input:hover{
+        	transform: scale(1.1);
+        }
+        #submit{
+            width: 120px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            color: black;
+            background-color: rgb(4, 244, 4);
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: 15px;
+            position: relative;
+            text-shadow: 2px 2px 2px white;
+            top: 15px;
+            left: 90px;
+            cursor: pointer;
+            animation: button 2s linear infinite;
+        }
+        @keyframes button {
+            0%{
+                transform: translate(0px);
+            }
+            25%{
+                transform: translate(25px);
+            }
+            50%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(-25px);
+            }
+        }
+        #submit:hover{
+            transform: scale(1.1);
+            background-color: rgb(47, 47, 237);
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            animation: none;
+        }
+        #cancle{
+        	width: 120px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: red;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: 15px;
+            position: relative;
+            text-shadow: 2px 2px 2px black;
+            top: 35px;
+            cursor: pointer;
+            animation: canclee 2s linear infinite;
+        }
+        @keyframes canclee {
+            0%{
+                transform: translate(0px);
+            }
+            25%{
+                transform: translate(-25px);
+            }
+            50%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(25px);
+            }
+        }
+        #cancle:hover{
+			transform: scale(1.1);
+            background-color: rgb(47, 47, 237);
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            animation: none;
+		}
+		#error{
+        	text-align: center;
+        	position: fixed;
+        	top: -40px;
+        	left: 50px;
+        	font-weight: bold;
+        	text-shadow: 2px 2px 2px white;
+        	font-size: 18px;
+        	color: red;
+        	animation: error 2s linear infinite;
+        	font-family: sans-serif;
+        }
+        @keyframes error {
+        	from{
+                transform: scale(1.1);
+            } 
+        }
+    </style>
+</head>
+<body>
+
+	<div>
+        <form action="bankstatementpage"> 
+        
+        <h2 id="error" th:text="${notransactions}"></h2>
+        
+            <h1>Bank Statement</h1><br>
+            <input required id="from" type="date" placeholder="  From Date" name="fromdate"><br>
+            <input required id="to" type="date" placeholder="  To Date" name="todate"><br>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+        
+        <form action="homepage">
+        	<input id="cancle" type="submit" value="Cancle">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ICICI Bank</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/save-up-3451075_1280.jpg");
+            background-repeat :no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        #registration{
+            width: 150px;
+            height: 40px;
+            background-color: black;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            outline: none;
+            border: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            top: 150px;
+            left: 160px;
+            animation: register 2s;
+        }
+        #login{
+            width: 150px;
+            height: 40px;
+            background-color: black;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            outline: none;
+            border: none;
+            position: relative;
+            top: 230px;
+            left: 10px;
+            animation: login 2s;
+        }
+        #forgot{
+            width: 150px;
+            height: 40px;
+            background-color: black;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            outline: none;
+            border: none;
+            position: relative;
+            top: 310px;
+            left: -140px;
+            animation: forgot 2s;
+        }
+        h1{
+            position: relative;
+            top: 80px;
+            left: 340px;
+            color: blue;
+            letter-spacing: 6px;
+            text-shadow: 2px 2px 2px black;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: heading 1s linear;
+        }
+        span{
+            color: black;
+            text-shadow: 2px 2px 2px white;
+            letter-spacing: 2px;
+        }
+        input:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+            box-shadow: 3px 3px 4px blue;
+            animation: none;
+        }
+        @keyframes heading{
+            from{
+                transform: translateY(-300px);
+            }
+        }
+        @keyframes register{
+            from{
+                transform: translateX(600px);
+            }
+        }
+        @keyframes login{
+            from{
+                transform: translateX(-800px);
+            }
+        }
+        @keyframes forgot{
+            from{
+                transform: translateY(400px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+	<h1>SSS <span>BANK</span></h1><br>
+
+    <form action="registrationpage">
+        <input type="submit" value="Create Account" id="registration"><br>
+    </form>
+
+    <form action="loginpage">
+        <input type="submit" value="Login" id="login"><br>
+    </form>
+
+    <form action="forgotpasswordpage">
+    	<input type="submit" value="Forgot Password" id="forgot">
+    </form>
+
+</body>
+</html>

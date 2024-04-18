@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan</title>
+<style type="text/css">
+	 *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/pattern-3232784_1280.jpg");
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            box-shadow: 5px 5px 5px rgb(126, 172, 190);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            top: 195px;
+            left: -255px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: circle  2s linear;
+        }
+        @keyframes circle{
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        h1{
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-shadow: 2px 2px 2px rgb(0, 191, 255);
+            font-weight: bold;
+            letter-spacing: 3px;
+            position: relative;
+            top: -35px;
+            left: 20px;
+            text-align: center;
+            font-size: 50px;
+            animation: heading 4s linear;
+        }
+        @keyframes heading{
+            0%{
+                transform: translateY(-200px);
+            }
+            50%{
+                transform: skew(20deg);
+            }
+            75%{
+                transform: skew(-20deg);
+            }
+            100%{
+                transform: skew(0deg);
+            }
+        }
+        #apply{
+            width: 300px;
+            height: 50px;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            margin: 8px;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            font-weight: bold;
+            background-color: rgb(0, 191, 255);
+            font-size: 15px;
+            text-shadow: 2px 2px 2px black;
+            color: white;
+        }
+        #apply:hover{
+            transform: scale(1.1);
+            background-color: rgb(0, 253, 0);
+            color: black;
+            text-shadow: 2px 2px 2px white;
+        }
+        #request{
+            width: 300px;
+            height: 50px;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            margin: 8px;
+            text-align: center;
+        }
+        #request:hover{
+            transform: scale(1.1);
+        }
+        #home{
+            width: 300px;
+            height: 50px;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            margin: 8px;
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            font-weight: bold;
+            background-color: rgb(0, 191, 255);
+            font-size: 15px;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+        }
+        #home:hover{
+            transform: scale(1.1);
+            background-color: red;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+        }
+        #error{
+        	position: fixed;
+        	top: -85px;
+        	left: 100px;
+        	text-align: center;
+        	font-weight: bold;
+        	text-shadow: 2px 2px 2px red;
+        	font-size: 15px;
+        	animation: error 2s linear;
+        	font-family: sans-serif;
+        }
+        @keyframes error {
+        	from{
+                transform: translateY(-200px);
+            } 
+        }
+</style>
+</head>
+<body>
+
+	<h1>Loan</h1>
+    
+    <div>
+        <form action="bankloandetails">
+        
+        <h2 id="error" style="color: lawngreen; text-shadow: 2px 2px 2px black"  th:text="${success}"></h2>
+        <h2 id="error" style="color: white" th:text="${decline}"></h2>
+        <h2 id="error" style="color: white" th:text="${upto}"></h2>
+        <h2 id="error" style="color: white" th:text="${insuff}"></h2>
+        
+            <input required id="request" type="number" placeholder="Requested Amount" name="amount"><br>
+            <input id="apply" type="submit" value="Apply"><br>
+        </form>
+
+        <form action="homepage">
+            <input id="home" type="submit" value="Home"><br>
+        </form>
+
+    </div>
+
+</body>
+</html>

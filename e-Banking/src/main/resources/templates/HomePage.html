@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/graph-163509_1280.jpg");
+            background-repeat :no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        #innerDiv{
+            width: 400px;
+            height: 400px;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px 5px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            left: 0px;
+            top: 180px;
+            animation: box 2s linear
+        }
+        @keyframes box{
+            from{
+                transform: translateY(600px);
+            }
+        }
+        input{
+            width: 280px;
+            height: 40px;
+            margin: 5px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgb(249, 216, 33);
+            font-size: 15px;
+            text-shadow: 2px 2px 2px white;
+            margin: 10px;
+            position: relative;
+            top: 5px;
+        }
+        #dash{
+            color: rgb(249, 178, 0);
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 3px rgb(27, 27, 27);
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: relative;
+            top: -15px;
+            animation: heading 2s linear infinite;
+            font-size: 35px;
+        }
+        @keyframes heading{
+            0%{
+                transform: scaleX(1);
+            }
+            25%{
+                transform: scaleY(1.2);
+            }
+            50%{
+                transform: scaleX(1.2);
+            }
+        }
+        #bank{
+            position: relative;
+            top: -75px;
+            left: 305px;
+            letter-spacing: 4px;
+            word-spacing: 5px;
+            font-weight: bold;
+            color: blue;
+            text-shadow: 3px 3px 3px black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: bank 40s forwards infinite;
+        }
+        @keyframes bank{
+            0%{
+                transform: translateX(-500px);
+            }
+            25%{
+                transform: translateX(500px);
+            }
+            50%{
+                transform: translateX(0px);
+            }
+            75%{
+                transform: translateX(-500px);
+            }
+            100%{
+                transform: translateX(500px);
+            }
+        }
+        span{
+            font-weight: bold;
+            color: black;
+            text-shadow: 1px 1px 3px blue;
+            letter-spacing: 2px;
+        }
+        input:hover{
+            transform: scale(1.1);
+            box-shadow: 0px 2px 2px 2px rgb(53, 53, 253);
+        }
+        #logout{
+        	width: 150px;
+        	height: 35px;
+        	background-color: red;
+        	color: white;
+        	font-weight: bold;
+        	letter-spacing: 2px;
+        	text-shadow: 2px 2px 2px black;
+        	position: relative;
+        	top: 430px;
+        	left: -280px;
+        	box-shadow: 2px 2px 5px white;
+        	animation: box 2s linear	
+        }
+        #logout:hover{
+        	transform: scale(1.1);
+        	cursor: pointer;
+        }
+        @keyframes logout{
+            0%{
+               	transform: translateX(0px);
+            }
+            25%{
+                transform: translateX(10px);
+            }
+            50%{
+                transform: translateX(0px);
+            }
+            75%{
+                transform: translateX(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+	<h1 id="bank">SSS <span>BANK</span></h1>
+    <div id="innerDiv">
+        <h1 id="dash">Dashboard</h1>
+        
+        <form action="checkamountpage">
+        	<input type="submit" value="Check Amount">
+        </form>
+        
+        <form action="debitpage">
+        	<input type="submit" value="Debit Amount">
+        </form>
+        
+        <form action="creditamountpage">
+        	<input type="submit" value="Credit Amount">
+        </form>
+        
+        <form action="statementpage">
+        	<input type="submit" value="Statement">
+        </form>
+        
+        <form action="bankloanpage">
+        	<input type="submit" value="Apply For Loan">
+        </form>
+        
+    </div>
+	
+	<form action="sssbank">
+        	<input id="logout" type="submit" value="Logout">
+        </form>
+	
+	
+</body>
+</html>

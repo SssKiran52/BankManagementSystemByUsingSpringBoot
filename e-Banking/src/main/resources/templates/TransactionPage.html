@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Transaction</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/communication-3819836_1280.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        #mainDiv{
+            width: 850px;
+            height: 450px;
+            position: relative;
+            top: 150px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px skyblue;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: maindiv 2s linear;
+        }
+        @keyframes maindiv{
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        #title{
+            width: 680px;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            top: -10px;
+        }
+        #trans{
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            animation: trans 2s linear infinite;
+        }
+        @keyframes trans{
+            from{
+                transform: translateY(5px);
+            }
+        }
+        table{
+            width: 740px;
+            text-align: center;
+            font-size: 15px;
+            position: relative;
+            top: 20px;
+            overflow: scroll;
+        }
+        #list{
+            width: 780px;
+            height: 200px;
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            overflow: scroll;
+        }
+        #bankname{
+            text-align: center;
+            position: relative;
+            top: 5px;
+            letter-spacing: 6px;
+            word-spacing: 3px;
+            font-weight: bold;
+            color: blue;
+            text-shadow: 2px 2px 2px black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: heading 2s linear infinite;
+        }
+        span{
+            color: black;
+            text-shadow: 1px 1px 1px blue;
+            letter-spacing: 2px;
+        }
+        #accountnumber{
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+        #userid{
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            position: relative;
+            left: 380px;
+        }
+        #mobilenumber{
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            position: relative;
+            top: 15px;
+            left: 380px;
+        }
+        #username{
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            position: relative;
+            top: -3px;
+            left: 20px;
+        }
+        @keyframes heading{
+            0%{
+                transform: scaleX(1);
+            }
+            25%{
+                transform: scaleY(1.2);
+            }
+            50%{
+                transform: scaleX(1.2);
+            }
+        }
+        #error{
+        	text-align: center;
+        	position: fixed;
+        	top: 280px;
+        	left:320px;
+        	font-weight: bold;
+        	text-shadow: 2px 2px 2px white;
+        	font-size: 15px;
+        	color: red;
+        	animation: error 2s linear infinite;
+        	font-family: sans-serif;
+        }
+        @keyframes error {
+        	from{
+                transform: scale(1.1);
+            } 
+        }
+        #h2account{
+        	position: relative;
+        	top: -54px;
+        	left: 180px;
+        	color: red
+        	
+        }
+        #h2id{
+        	position: relative;
+        	top: -77px;
+        	left: 466px;
+        	color: red
+        }
+        #h2name{
+        	position: relative;
+        	top: -65px;
+        	left: 133px;
+        	color: red
+        }
+        #h2mobile{
+        	position: relative;
+        	top: -88px;
+        	left: 528px;
+        	color: red
+        }
+        #home{
+        	width: 150px;
+        	height: 30px;
+        	border-radius: 10px;
+        	background-color: red;
+        	color: white;
+        	text-shadow: 2px 2px 2px black;
+        	outline: none;
+        	border: none;
+        	font-weight: bold;
+        	letter-spacing: 2px;
+        	position: relative;
+        	top: 20px;
+        	animation: home 2s linear infinite;
+        }
+        @keyframes home{
+            0%{
+               	transform: translateX(0px);
+            }
+            25%{
+                transform: translateX(10px);
+            }
+            50%{
+                transform: translateX(0px);
+            }
+            75%{
+                transform: translateX(-10px);
+            }
+        }
+        #home:hover{
+        	transform: scale(1.1);
+        	background-color: blue;
+        	cursor: pointer;
+        	animation: none;
+        }
+    </style>
+</head>
+<body>
+
+	<div id="mainDiv">
+
+        <div id="title">
+            <h2 id="bankname">SSS <span>Bank</span></h2>
+            <h3 id="accountnumber">Account Number : </h3>
+            <h3 id="userid">User Id :</h3>
+            <h3 id="mobilenumber">Mobile Number :</h3>
+            <h3 id="username">User Name :</h3>
+            
+            <h3 id="h2account" th:text="${accountnumber}"></h3>
+            <h3 id="h2id" th:text="${userid}"></h3>
+            <h3 id="h2name" th:text="${username}"></h3>
+            <h3 id="h2mobile" th:text="${mobilenumber}"></h3>
+
+        </div>
+        <h2 id="trans">Transaction Details</h2>
+        <div id="list">
+
+            <table  border="2" cellspacing="0px" cellpadding="20px" align="center">
+                <tr>
+                 <th>Transaction Id</th>
+                 <th>Credit Amount</th>
+                 <th>Debit Amount</th>
+                 <th>Bank Balance</th>
+                 <th>Date</th>
+                 <th>Time</th>
+                 <th>Receiver Account Number</th>
+             </tr>  
+              
+             <tr th:each="bank:${listobject}">
+                 <td th:text="${bank.transactionid}"></td>
+                 <td style="color: green" th:text="${bank.transactioncredit}"></td> 
+                 <td style="color: red" th:text="${bank.transactiondebit}"></td> 
+                 <td style="color: blue" th:text="${bank.bankbalance}"></td> 
+                 <td th:text="${bank.transactiondate}"></td> 
+                 <td th:text="${bank.transactiontime}"></td>
+                 <td th:text="${bank.transferaccountnumber}"></td>     
+             </tr>
+         </table> 
+    	
+        </div>
+
+		<form action="homepage">
+    		<input id="home" type="submit" value="Home">
+    	</form>
+
+    </div>
+		
+</body>
+</html>

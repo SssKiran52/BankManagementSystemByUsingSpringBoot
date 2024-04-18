@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Debit</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            width: 100%;
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(75deg, black,darkgray,white,darkgray,black);
+            overflow: hidden;
+        }
+        #mainDiv{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/social-media-3846597_1280.png");
+            animation: main 2s linear;
+        }
+        @keyframes main{
+            from{
+                transform: skewY(45deg);
+            }
+        }
+        #subDiv{
+            width: 400px;
+            height: 300px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: subdiv 2s linear;
+            
+        }
+        @keyframes subdiv{
+            from{
+                transform: skewX(45deg);
+            }
+        }
+        h1{
+            position: relative;
+            top: -30px;
+            text-align: center;
+            color: black;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            text-shadow: 2px 2px 2px white;
+            font-weight: bold;
+            font-size: 35px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: heading 2s linear infinite;
+        }
+        @keyframes heading{
+            0%{
+                transform: scaleX(1);
+            }
+            25%{
+                transform: scaleY(1.2);
+            }
+            50%{
+                transform: scaleX(1.1);
+            }
+        }
+        #input{
+            width: 300px;
+            height: 40px;
+            position: relative;
+            text-align: center;
+            top: 0px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            box-shadow: 2px 2px 2px black;
+        }
+        #input:hover{
+            transform: scale(1.1);
+            box-shadow: 2px 2px 2px rgb(4, 244, 4);
+        }
+        #submit{
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            background-color: rgb(4, 244, 4);
+            text-shadow: 2px 2px 2px white;
+            color: black;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            left: 25px;
+            top: 45px;
+            cursor: pointer;
+            animation: submit 2s linear infinite;
+        }
+        #submit:hover{
+            transform: scale(1.1);
+            background-color: yellow;
+            color: black;
+            text-shadow: 2px 2px 2px white;
+            animation: none;
+        }
+        @keyframes submit{
+            25%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-10px);
+            }
+            75%{
+                transform: translateY(10px);
+            }
+        }
+        #cancle{
+        	width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            background-color: red;
+            text-shadow: 2px 2px 2px black;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            left: 70px;
+            top: 5px;
+            cursor: pointer;
+            animation: submit 2s linear infinite;
+        }
+        #cancle:hover{
+            transform: scale(1.1);
+            background-color: yellow;
+            color: black;
+            text-shadow: 2px 2px 2px white;
+            animation: none;
+        }
+        #error{
+        	position: fixed;
+        	top: -35px;
+        	left: 100px;
+        	text-align: center;
+        	font-weight: bold;
+        	text-shadow: 2px 2px 2px white;
+        	font-size: 15px;
+        	animation: error 2s linear infinite;
+        	font-family: sans-serif;
+        }
+        @keyframes error {
+        	from{
+                transform: scale(1.1);
+            } 
+        }
+    </style>
+</head>
+<body>
+
+	<div id="mainDiv">
+
+        <div id="subDiv">
+            <form action="debitamountdetails">
+            
+            <h2 id="error" style="color: red" th:text="${yournumber}"></h2>
+	        <h2 id="error" style="color: red" th:text="${notfound}"></h2>
+	        <h2 id="error" style="color: red" th:text="${digits}"></h2>
+            
+                <h1>Debit Amount</h1><br>
+                <input required id="input" type="number" placeholder="  Enter Receiver Account Number" name="accountnumber"><br>
+                <input id="submit" type="submit" value="Submit"><br>
+            </form>
+            
+            <form action="homepage">
+        		<input id="cancle" type="submit" value="Cancle">
+        	</form>
+        </div>
+
+    </div>
+
+</body>
+</html>

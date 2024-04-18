@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Check Amount</title>
+<style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            transition: all;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("./Images/pay-937884_1280.jpg");
+            background-repeat :no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        #mainDiv{
+            width: 500px;
+            height: 400px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px black;
+            animation: box 2s linear;
+            position: relative;
+            top: 180px;
+        }
+        @keyframes box{
+            from{
+                transform: rotateY(180deg);
+            }
+        }
+        table{
+            width: 450px;
+            height: 60px;
+            position: relative;
+            top: 65px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #check{
+            text-align: center;
+            position: relative;
+            top: -60px;
+            color: black;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 3px white;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            animation: heading 2s linear infinite;
+        }
+        @keyframes heading{
+            0%{
+                transform: scaleX(1);
+            }
+            25%{
+                transform: scaleY(1.2);
+            }
+            50%{
+                transform: scaleX(1.2);
+            }
+        }
+        #otpbox{
+            position: relative;
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            left: 100px;
+            top: -20px;
+            text-align: center;
+        }
+        #otpbox:hover{  
+       		transform: scale(1.1);
+       		cursor: pointer; 
+        }
+        #display{
+            position: relative;
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            left: 100px;
+            top: -40px;
+            border: none;
+            text-align: center;
+            cursor: block;
+            box-shadow: 2px 2px 3px black;
+        }
+        #generate{
+            width: 120px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+            position: relative;
+            top: -79px;
+            left: -150px;
+            animation: button 2s linear infinite;
+        }
+        #generate:hover{
+            background-color: rgb(34, 34, 250);
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            cursor: pointer;
+            transform: scale(1.1);
+            animation: none;
+        }
+        #submit{
+            width: 120px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+            position: relative;
+            top: 40px;
+            left: -92px;
+            animation: button 2s linear infinite;
+        }
+        #submit:hover{
+            background-color: rgb(8, 232, 8);
+            color: black;
+            text-shadow: 2px 2px 2px white;
+            cursor: pointer;
+            transform: scale(1.1);
+            animation: none;
+        }
+        #home{
+            width: 120px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+            position: relative;
+            top: -109px;
+            left: 150px;
+            animation: button 2s linear infinite;
+        }
+        #home:hover{
+            background-color: red;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            cursor: pointer;
+            transform: scale(1.1);
+            animation: none;
+        }
+        #details{
+            position: relative;
+            text-align: center;
+            top: 55px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 2px white;
+            font-weight: bold;
+        }
+        @keyframes button{
+            from{
+                transform: translateY(-10px);
+            }
+            to{
+                transform: translateX(-10px);
+            }
+        }
+        #error{
+        	position: fixed;
+        	top: -35px;
+        	left: 150px;
+        	text-align: center;
+        	font-weight: bold;
+        	text-shadow: 2px 2px 2px white;
+        	font-size: 25px;
+        	animation: error 2s linear infinite;
+        	font-family: sans-serif;
+        }
+        @keyframes error {
+        	from{
+                transform: scale(1.1);
+            } 
+        }
+        #otp{
+        	position: relative;
+        	left: 200px;
+        	top: -68px;
+        	letter-spacing: 3px;
+        	color: blue;
+        	text-shadow: 1px 1px 1px white;
+        }
+    </style>
+</head>
+<body>
+
+	<div id="mainDiv">
+        <form action="checkbalancedetails">
+        <h2 id="error" style="color: red" th:text="${miss}"></h2>
+        <h2 id="error" style="color: red" th:text="${notfound}"></h2>
+            <h1 id="check">Check Balance</h1>
+            <div id="display"></div>
+            <h2 id="otp" th:text=${otp}></h2>
+            <input required id="otpbox" type="number" placeholder=" Enter Your OTP" name="otp">
+            <input id="submit" type="submit" value="Submit">
+            
+            <h2 id="details">Details</h2>
+        <table  border="2" cellspacing="0px" cellpadding="20px" align="center">
+	       	<tr>
+	            <th>Name</th>
+	            <th>Mobile Number</th>
+	            <th>Account Number</th>
+	            <th>Amount</th>
+	        </tr>  
+	         
+	        <tr th:each="bank:${details}">
+	            <td style="color: blue" th:text="${bank.userusername}"></td>
+	            <td style="color: blue" th:text="${bank.usermobilenumber}"></td> 
+	            <td style="color: blue" th:text="${bank.bankaccountnumber}"></td> 
+	            <td style="color: blue" th:text="${bank.bankbalance}"></td>     
+	        </tr>
+        </table>    
+        </form>
+        
+        <form action="generateotp">
+        	<input id="generate" type="submit" value="Generate OTP">
+        </form>
+        
+        <form action="homepage">
+        	<input id="home" type="submit" value="Home">
+        </form>
+        
+    </div>
+
+</body>
+</html>
